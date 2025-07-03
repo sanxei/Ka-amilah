@@ -1,0 +1,33 @@
+<body>
+    <header>
+      <nav class="flex justify-between md:px-28 bg-gray-600 ">
+        <div>
+          <img src="public/Logo.png" alt="Logo" class="m-3 w-36 md:w-36 " />
+        </div>
+
+        <div class="absolute md:abs bg-amber-300 md:min-h-0 min-h-[30vh] top-[5%]">
+          <ul class="flex md:flex-row flex-col gap-10 text-base font-poppins">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+
+          <!-- <ul id="mobile-menu" class="hidden md:hidden mt-4 gap-5 text-xs space-y-2 font-poppins">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul> -->
+        </div>
+      </nav>
+    </header>
+
+    <script>
+      const tham = document.querySelector(".tham");
+
+      tham.addEventListener("click", () => {
+        tham.classList.toggle("tham-active");
+      });
+    </script>
+  </body>
