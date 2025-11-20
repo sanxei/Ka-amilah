@@ -1,260 +1,532 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ka'amilah | Jasa Perbaikan Radiator</title>
-    <link href="/src/style.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-white text-black">
-    <!-- Navbar -->
-    <header class="shadow-sm">
-      <div
-        class="container mx-auto px-4 py-4 flex items-center justify-between"
-      >
-        <div class="text-xl font-poppins font-bold text-orange-600">
-          Ka<span class="text-black">’amilah</span>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ka'amilah | Jasa Perbaikan Radiator Profesional</title>
+  <meta name="description" content="Layanan perbaikan dan perawatan radiator profesional di Samarinda. Spesialis radiator mobil, alat berat, intercooler, dan oil cooler.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'hsl(40, 20%, 97%)',
+            foreground: 'hsl(210, 20%, 15%)',
+            card: 'hsl(0, 0%, 100%)',
+            primary: 'hsl(210, 20%, 15%)',
+            accent: 'hsl(25, 70%, 50%)',
+            secondary: 'hsl(210, 15%, 25%)',
+            muted: 'hsl(210, 10%, 92%)',
+            'muted-foreground': 'hsl(210, 10%, 45%)',
+            border: 'hsl(210, 15%, 88%)',
+            'luxury-dark': 'hsl(210, 25%, 12%)',
+            bronze: 'hsl(25, 70%, 50%)',
+            'bronze-light': 'hsl(25, 60%, 60%)',
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          boxShadow: {
+            'luxury': '0 20px 60px -15px hsl(210 25% 12% / 0.3)',
+            'bronze': '0 10px 40px -10px hsl(25 70% 50% / 0.4)',
+          },
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 20px hsl(25 70% 45% / 0.5);
+      }
+      50% {
+        text-shadow: 0 0 30px hsl(25 70% 45% / 0.8);
+      }
+    }
+    
+    .animate-fadeInUp {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-glow {
+      animation: glow 2s ease-in-out infinite;
+    }
+    
+    .delay-200 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-300 {
+      animation-delay: 0.3s;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-foreground">
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="text-2xl font-bold">
+          <span class="text-bronze">Ka</span>
+          <span class="text-luxury-dark">'amilah</span>
         </div>
-        <nav class="hidden md:flex gap-6 text-sm font-poppins">
-          <a href="#home" class="hover:text-orange-600">Home</a>
-          <a href="#about" class="hover:text-orange-600">About</a>
-          <a href="#services" class="hover:text-orange-600">Service</a>
-          <a href="#contact" class="hover:text-orange-600">Contact</a>
+
+        <nav class="hidden md:flex gap-8 text-sm font-medium">
+          <a href="#home" class="text-foreground hover:text-bronze transition-all duration-300">Home</a>
+          <a href="#about" class="text-foreground hover:text-bronze transition-all duration-300">About</a>
+          <a href="#services" class="text-foreground hover:text-bronze transition-all duration-300">Service</a>
+          <a href="#contact" class="text-foreground hover:text-bronze transition-all duration-300">Contact</a>
         </nav>
-        <!-- Hamburger -->
-        <button class="md:hidden" id="menu-button">
-          <svg
-            class="w-6 h-6 text-black"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+
+        <button id="menuToggle" class="md:hidden text-foreground" aria-label="Toggle menu">
+          <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg id="closeIcon" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
       </div>
+
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-        <a href="#home" class="block py-2">Home</a>
-        <a href="#about" class="block py-2">About</a>
-        <a href="#services" class="block py-2">Service</a>
-        <a href="#contact" class="block py-2">Contact</a>
+      <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-3">
+        <a href="#home" class="block py-2 text-foreground hover:text-bronze transition-all duration-300">Home</a>
+        <a href="#about" class="block py-2 text-foreground hover:text-bronze transition-all duration-300">About</a>
+        <a href="#services" class="block py-2 text-foreground hover:text-bronze transition-all duration-300">Service</a>
+        <a href="#contact" class="block py-2 text-foreground hover:text-bronze transition-all duration-300">Contact</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Hero -->
-    <section id="home" class="relative w-full h-screen">
-      <img
-        src="public/radiator.png"
-        alt="Radiator"
-        class="w-full h-screen md:w-full md:h-full object-cover"
-      />
+  <!-- Hero Section -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-luxury-dark">
+      <div class="absolute inset-0 bg-gradient-to-br from-luxury-dark via-secondary to-luxury-dark opacity-90"></div>
+      <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fadeInUp">
+        BEST SOLUTION FOR
+        <span class="block text-bronze animate-glow mt-2">RADIATOR</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 font-light animate-fadeInUp delay-200">
+        Layanan Profesional untuk Kendaraan Anda
+      </p>
+      <a href="#services" class="inline-block mt-8 px-8 py-4 bg-bronze text-white font-semibold rounded-lg shadow-bronze hover:scale-105 transition-all duration-500 animate-fadeInUp delay-300">
+        Lihat Layanan Kami
+      </a>
+    </div>
 
-      <div
-        class="absolute inset-0 flex items-center justify-center bg-black/40"
-      >
-        <h1
-          class="font-poppins text-white text-2xl md:text-4xl font-bold text-center px-4"
-        >
-          BEST SOLUTION FOR RADIATOR
-        </h1>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+        <div class="w-1.5 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
       </div>
-    </section>
-    <!-- About -->
-    <section id="about" class="container md:mx-auto md:px-30 py-10 md:py-60">
-      <div class="grid md:grid-cols-2 gap-20 items-center font-poppins">
-        <div data-aos="fade-right" class="px-2">
-          <h2
-            class="text-3xl font-semibold mb-2 underline decoration-orange-500 decoration-5"
-          >
-            About Us
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 md:py-32 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <div class="inline-block mb-4">
+            <span class="text-sm font-semibold text-bronze uppercase tracking-wider">Tentang Kami</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold text-luxury-dark mb-6 leading-tight">
+            Spesialis Radiator Terpercaya
           </h2>
-          <div class="sm:text-lg text-base gap-5 flex flex-col py-5">
+          <div class="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              <strong>Radiator Kaamilah</strong> adalah bengkel spesialis
-              radiator yang melayani perawatan dan perbaikan berbagai jenis
-              kendaraan, mulai dari mobil pribadi hingga alat berat. Kami
-              berkomitmen pada kualitas, kejujuran, dan pelayanan tepat waktu.
+              <strong class="text-foreground">Radiator Ka'amilah</strong> adalah bengkel spesialis radiator yang melayani perawatan dan perbaikan berbagai jenis kendaraan, mulai dari mobil pribadi hingga alat berat. Kami berkomitmen pada kualitas, kejujuran, dan pelayanan tepat waktu.
             </p>
 
             <div>
-              <p>Layanan utama kami mencakup:</p>
-              <ul class="list-disc px-5">
-                <li>Pembersihan dan servis radiator</li>
-                <li>Perbaikan serta pengelasan radiator bocor</li>
-                <li>Penggantian core radiator</li>
+              <p class="font-semibold text-foreground mb-2">Layanan utama kami mencakup:</p>
+              <ul class="space-y-2 ml-5">
+                <li class="flex items-start">
+                  <span class="text-bronze mr-2">•</span>
+                  <span>Pembersihan dan servis radiator</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-bronze mr-2">•</span>
+                  <span>Perbaikan serta pengelasan radiator bocor</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-bronze mr-2">•</span>
+                  <span>Penggantian core radiator</span>
+                </li>
               </ul>
             </div>
+
             <p>
-              Didukung teknisi berpengalaman dan peralatan modern, kami siap
-              menjadi mitra andal dalam menjaga performa sistem pendingin
-              kendaraan Anda.
+              Didukung teknisi berpengalaman dan peralatan modern, kami siap menjadi mitra andal dalam menjaga performa sistem pendingin kendaraan Anda.
             </p>
           </div>
         </div>
-        <div class="flex justify-center">
-          <img
-            src="public/las.jpg"
-            alt="About"
-            class="sm:w-6xl w-xs shadow-[8px_8px_0px_0px_#F07A0C]"
-          />
-        </div>
-      </div>
-    </section>
 
-    <!-- Services -->
-    <section id="services" class="bg-gray-300 py-10 font-poppins">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-8">
-          <button
-            class="text-orange-500 text-2xl px-6 py-2 rounded font-semibold"
-          >
-            Services
-          </button>
-          <p class="mt-2 text-sm">JASA YANG KAMI SEDIAKAN</p>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div class="flex flex-col items-center">
-            <!-- <div class="text-orange-600 text-3xl">🔧</div> -->
-            <img src="maintain.png" alt="Maintenance" class="w-[50px]" />
-            <h3 class="font-semibold mt-2">Maintenance Radiator</h3>
-            <p class="text-xs text-gray-600">Memperbaiki/Perawatan Radiator</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <!-- <div class="text-orange-600 text-3xl">🚜</div> -->
-            <img
-              src="wrench.png
-           "
-              alt=""
-              class="w-[50px]"
-            />
-            <h3 class="font-semibold mt-2">Radiator Alat Berat</h3>
-            <p class="text-xs text-gray-600">Service Radiator Alat Berat</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <!-- <div class="text-orange-600 text-3xl">🚗</div> -->
-            <img src="car.png" alt="" class="w-[50px]" />
-            <h3 class="font-semibold mt-2">Radiator Mobil</h3>
-            <p class="text-xs text-gray-600">Service Radiator Mobil</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <!-- <div class="text-orange-600 text-3xl">🛻</div> -->
-            <img src="delivery-truck.png" alt="" class="w-[80px]" />
-            <h3 class="font-semibold mt-2">Siap Antar Jemput</h3>
-            <p class="text-xs text-gray-600">Siap Antar Jemput (Khusus Solo)</p>
+        <div>
+          <div class="relative">
+            <div class="absolute -inset-4 bg-bronze/10 rounded-2xl blur-2xl"></div>
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop" alt="Radiator Workshop" class="relative rounded-2xl shadow-luxury w-full h-[500px] object-cover">
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact & Location -->
-    <section id="contact" class="container mx-auto px-4 py-10 font-poppins">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h2 class="text-lg font-semibold mb-4">Contact Us</h2>
-          <ul class="text-sm space-y-3">
-            <li class="flex gap-3">
-              <img class="w-[20px]" src="phone.png" alt="" /> 0822-000-000-00
-            </li>
-            <li class="flex gap-3">
-              <img class="w-[20px]" src="email.png" alt="" />
-              <a href="mailto:kaamilah@gmail.com">kaamilah@gmail.com</a>
-            </li>
-            <li class="flex gap-3">
-              <img class="w-[20px] h-[20px]" src="maps.png" alt="" />Jl. Cipto
-              Mangunkusumo, Simpang Tiga, Kec. Loa Janan Ilir, Kota Samarinda,
-              Kalimantan Timur 75391
-            </li>
-            <li class="flex gap-3">
-              <img class="w-[20px]" src="instagram.png" alt="" /> @kaamilah
-            </li>
-            <li class="flex gap-3">
-              <img class="w-[20px]" src="facebook.png" alt="" /> @kaamilah
-            </li>
-          </ul>
+  <!-- Services Section -->
+  <section id="services" class="py-20 md:py-32 bg-muted">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-sm font-semibold text-bronze uppercase tracking-wider">Layanan Kami</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-luxury-dark mt-4">Professional Services</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Service 1 -->
+        <div class="group">
+          <div class="bg-card rounded-2xl p-8 shadow-lg hover:shadow-bronze transition-all duration-400 hover:-translate-y-2 h-full border border-border/50">
+            <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-400">
+              <svg class="w-8 h-8 text-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-foreground mb-4">Radiator Services</h3>
+            <ul class="space-y-3 text-muted-foreground">
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Maintenance Radiator</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Perbaikan Kebocoran Radiator</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Penggantian Core</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <!-- Service 2 -->
+        <div class="group">
+          <div class="bg-card rounded-2xl p-8 shadow-lg hover:shadow-bronze transition-all duration-400 hover:-translate-y-2 h-full border border-border/50">
+            <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-400">
+              <svg class="w-8 h-8 text-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-foreground mb-4">Intercooler & Aftercooler</h3>
+            <ul class="space-y-3 text-muted-foreground">
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Pembersihan Intercooler / Aftercooler</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Perbaikan Bocor</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Penggantian Baru / Core Replacement</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="group">
+          <div class="bg-card rounded-2xl p-8 shadow-lg hover:shadow-bronze transition-all duration-400 hover:-translate-y-2 h-full border border-border/50">
+            <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-400">
+              <svg class="w-8 h-8 text-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-foreground mb-4">Oil Cooler Services</h3>
+            <ul class="space-y-3 text-muted-foreground">
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Cleaning & Flushing Oil Cooler</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Replacement / Custom Oil Cooler</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Repair Kebocoran</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="group">
+          <div class="bg-card rounded-2xl p-8 shadow-lg hover:shadow-bronze transition-all duration-400 hover:-translate-y-2 h-full border border-border/50">
+            <div class="w-16 h-16 rounded-full bg-bronze/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-400">
+              <svg class="w-8 h-8 text-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-foreground mb-4">Antar Jemput & Pengiriman</h3>
+            <ul class="space-y-3 text-muted-foreground">
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Layanan Jemput Radiator</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Pengiriman Setelah Service</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-bronze mr-2 mt-1">✓</span>
+                <span>Khusus Area Tertentu</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="py-20 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-sm font-semibold text-bronze uppercase tracking-wider">Partner Terpercaya</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-luxury-dark mt-4">Our Partners</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div class="bg-card rounded-xl p-6 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg transition-all duration-400 border border-border/50">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/ABJ.png" alt="Partner 1" class="max-h-20 w-auto object-contain">
+        </div>
+        <div class="bg-card rounded-xl p-6 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg transition-all duration-400 border border-border/50">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/BAS.jpeg" alt="Partner 2" class="max-h-20 w-auto object-contain">
+        </div>
+        <div class="bg-card rounded-xl p-6 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg transition-all duration-400 border border-border/50">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/CK.jpeg" alt="Partner 3" class="max-h-20 w-auto object-contain">
+        </div>
+        <div class="bg-card rounded-xl p-6 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg transition-all duration-400 border border-border/50">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/HYUNDAI.jpeg" alt="Partner 4" class="max-h-20 w-auto object-contain">
+        </div>
+        <div class="bg-card rounded-xl p-6 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg transition-all duration-400 border border-border/50">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/IBP.jpeg" alt="Partner 5" class="max-h-20 w-auto object-contain">
+        </div>
+        <div class="bg-card rounded-xl p-6 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg transition-all duration-400 border border-border/50">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/smp.jpeg" alt="Partner 6" class="max-h-20 w-auto object-contain">
+        </div>
+        <div class="bg-card rounded-xl p-6 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg transition-all duration-400 border border-border/50">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/trakindo.jpeg" alt="Partner 7" class="max-h-20 w-auto object-contain">
+        </div>
+        <div class="bg-card rounded-xl p-6 flex items-center justify-center hover:-translate-y-2 hover:shadow-lg transition-all duration-400 border border-border/50">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/whs.jpeg" alt="Partner 8" class="max-h-20 w-auto object-contain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="py-20 bg-muted">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-sm font-semibold text-bronze uppercase tracking-wider">Galeri</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-luxury-dark mt-4">Our Work</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="overflow-hidden rounded-xl aspect-square hover:-translate-y-2 hover:shadow-lg transition-all duration-400 cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/radiator-1.jpeg" alt="Gallery 1" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-xl aspect-square hover:-translate-y-2 hover:shadow-lg transition-all duration-400 cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/radiator-9.jpeg" alt="Gallery 2" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-xl aspect-square hover:-translate-y-2 hover:shadow-lg transition-all duration-400 cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/radiator-3.png" alt="Gallery 3" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-xl aspect-square hover:-translate-y-2 hover:shadow-lg transition-all duration-400 cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/radiator-4.png" alt="Gallery 4" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-xl aspect-square hover:-translate-y-2 hover:shadow-lg transition-all duration-400 cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/radiator-10.png" alt="Gallery 5" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-xl aspect-square hover:-translate-y-2 hover:shadow-lg transition-all duration-400 cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/radiator-6.png" alt="Gallery 6" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-xl aspect-square hover:-translate-y-2 hover:shadow-lg transition-all duration-400 cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/radiator-7.jpg" alt="Gallery 7" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-xl aspect-square hover:-translate-y-2 hover:shadow-lg transition-all duration-400 cursor-pointer">
+          <img src="https://cdn.jsdelivr.net/gh/sanxei/Img-Kaamilah@main/radiator-11.png" alt="Gallery 8" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 md:py-32 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16">
         <div>
-          <h2 class="text-lg font-semibold mb-4">Location</h2>
-          <div
-            class="relative w-full pb-[56.25%] rounded-xl shadow-lg overflow-hidden"
-          >
+          <span class="text-sm font-semibold text-bronze uppercase tracking-wider">Hubungi Kami</span>
+          <h2 class="text-4xl md:text-5xl font-bold text-luxury-dark mt-4 mb-8">Get In Touch</h2>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4 group">
+              <div class="w-12 h-12 rounded-full bg-bronze/10 flex items-center justify-center flex-shrink-0 group-hover:bg-bronze group-hover:scale-110 transition-all duration-400">
+                <svg class="w-5 h-5 text-bronze group-hover:text-white transition-all duration-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-1">Telepon</h3>
+                <a href="tel:089617209512" class="text-muted-foreground hover:text-bronze transition-all duration-300">
+                  0896-1720-9512
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 group">
+              <div class="w-12 h-12 rounded-full bg-bronze/10 flex items-center justify-center flex-shrink-0 group-hover:bg-bronze group-hover:scale-110 transition-all duration-400">
+                <svg class="w-5 h-5 text-bronze group-hover:text-white transition-all duration-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-1">Email</h3>
+                <a href="mailto:kaamilah@gmail.com" class="text-muted-foreground hover:text-bronze transition-all duration-300">
+                  kaamilah@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 group">
+              <div class="w-12 h-12 rounded-full bg-bronze/10 flex items-center justify-center flex-shrink-0 group-hover:bg-bronze group-hover:scale-110 transition-all duration-400">
+                <svg class="w-5 h-5 text-bronze group-hover:text-white transition-all duration-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-foreground mb-1">Alamat</h3>
+                <p class="text-muted-foreground">
+                  Jl. Cipto Mangunkusumo, Simpang Tiga, Kec. Loa Janan Ilir, Kota Samarinda, Kalimantan Timur 75391
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="relative rounded-2xl overflow-hidden shadow-luxury h-[400px]">
             <iframe
-              class="absolute top-0 left-0 w-full h-full"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.185873917748!2d117.084081!3d-0.573822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df6812eb5dfe48f%3A0xc0c91638137ba04!2sCV.%20KA&#39;AMILAH!5e1!3m2!1sid!2sid!4v1717918181821!5m2!1sid!2sid"
-              allowfullscreen=""
+              class="w-full h-full"
+              style="border: 0;"
+              allowfullscreen
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            >
+              referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-300 py-6 mt-10 text-center text-sm text-gray-600">
-      <div
-        class="flex flex-row md:flex-row justify-between container mx-auto px-4"
-      >
-        <div class="text-left mb-4 md:mb-0">
-          <div class="font-bold text-orange-600">
-            Ka<span class="text-black">’amilah</span>
+  <!-- Footer -->
+  <footer class="bg-luxury-dark text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="text-2xl font-bold mb-4">
+            <span class="text-bronze">Ka</span>
+            <span class="text-white">'amilah</span>
           </div>
-          <nav class="mt-2 space-y-1 md:space-y-0 md:space-x-4 text-sm">
-            <a href="#home" class="block">Home</a>
-            <a href="#about" class="block">About</a>
-            <a href="#services" class="block">Service</a>
-            <a href="#contact" class="block">Contact</a>
+          <p class="text-white/70 text-sm">
+            Spesialis perbaikan dan perawatan radiator profesional di Samarinda.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Quick Links</h3>
+          <nav class="space-y-2 text-sm text-white/70">
+            <a href="#home" class="block hover:text-bronze transition-all duration-300">Home</a>
+            <a href="#about" class="block hover:text-bronze transition-all duration-300">About</a>
+            <a href="#services" class="block hover:text-bronze transition-all duration-300">Service</a>
+            <a href="#contact" class="block hover:text-bronze transition-all duration-300">Contact</a>
           </nav>
         </div>
+
         <div>
-          <ul class="space-y-2 text-left text-sm">
-            <li class="flex gap-3">
-              <img class="w-[20px]" src="phone.png" alt="" /> 0822-000-000-00
-            </li>
-            <li class="flex gap-3">
-              <img class="w-[20px]" src="email.png" alt="" />
-              <a href="mailto:kaamilah@gmail.com">kaamilah@gmail.com</a>
-            </li>
-            <li class="flex gap-3">
-              <img class="w-[20px]" src="instagram.png" alt="" /> @kaamilah
-            </li>
-            <li class="flex gap-3">
-              <img class="w-[20px]" src="facebook.png" /> @kaamilah
-            </li>
-          </ul>
+          <h3 class="font-semibold mb-4">Contact Info</h3>
+          <div class="space-y-2 text-sm text-white/70">
+            <p>0896-1720-9512</p>
+            <p>kaamilah@gmail.com</p>
+          </div>
         </div>
       </div>
-      <p class="mt-4">©2025 All Rights Reserved.</p>
-    </footer>
 
-    <!-- Hamburger Menu Script -->
-    <script>
-      const btn = document.getElementById("menu-button");
-      const menu = document.getElementById("mobile-menu");
+      <div class="border-t border-white/10 pt-8 text-center text-sm text-white/50">
+        <p>© 2025 Ka'amilah Radiator Service. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
+  <script>
+    // Hamburger menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking a link
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
       });
-    </script>
-    <script>
-      import AOS from "aos";
-      import "aos/dist/aos.css";
-
-      AOS.init();
-      AOS.refresh();
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
